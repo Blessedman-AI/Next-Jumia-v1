@@ -40,21 +40,6 @@ export const config = {
     error: '/signin',
   },
   callbacks: {
-    authorized({ request, auth }: any) {
-      const protectedPaths = [
-        /\/shipping/,
-        /\/payment/,
-        /\/place-holder/,
-        /\/profile/,
-        /\/order\/(.*)/,
-        /\/admin/,
-      ];
-
-      const { pathName } = request.nextUrl;
-
-      if (protectedPaths.some((p) => p.test(pathName))) return !!auth;
-      return true;
-    },
     async jwt({ user, trigger, session, token }: any) {
       if (user) {
         token.user = {
