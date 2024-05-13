@@ -13,6 +13,7 @@ export default function CartDetails() {
   const { items, itemsPrice, decrease, increase } = useCartService();
 
   const handleCheckoutClick = async () => {
+    console.log(session);
     if (session) {
       // User is logged in, navigate to shipping page
       router.push('/shipping');
