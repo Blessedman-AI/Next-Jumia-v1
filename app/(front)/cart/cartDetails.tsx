@@ -19,8 +19,11 @@ export default function CartDetails() {
     } else {
       // User is not logged in, redirect to sign-in
       router.push(
-        `/signin?callbackUrl=http%3A%2F%2Flocalhost%3A3000%2Fshipping`
+        `/signin?callbackUrl=${process.env.NEXT_PUBLIC_BASE_URL}/shipping`
       );
+      // router.push(
+      //   `/signin?callbackUrl=http%3A%2F%2Flocalhost%3A3000%2Fshipping`
+      // );
     }
   };
 
